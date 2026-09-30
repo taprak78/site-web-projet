@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ajout d'un nouveau véhicule - Méditerranée</title>
+</head>
+
+<body bgcolor="#F2E788">
+
+    <form action="#" method="post">
+
+        <h1>Ajout d'un nouveau véhicule</h1>
+
+        <table border="0" width="60%">
+
+            <!-- Marque : liste déroulante (3 marques possibles) -->
+            <tr>
+                <td><label for="marque">Marque :</label></td>
+                <td>
+                    <select id="marque" name="marque">
+                        <option value="peugeot">Peugeot</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="renault">Renault</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- Immatriculation : champ texte -->
+            <tr>
+                <td><label for="immatriculation">Immatriculation :</label></td>
+                <td>
+                    <input type="text" id="immatriculation" name="immatriculation">
+                </td>
+            </tr>
+
+            <!-- Couleur : champ texte -->
+            <tr>
+                <td><label for="couleur">Couleur :</label></td>
+                <td>
+                    <input type="text" id="couleur" name="couleur">
+                </td>
+            </tr>
+
+            <!-- Date d'immatriculation : champ date -->
+            <tr>
+                <td><label for="date_immatriculation">Date d'immatriculation :</label></td>
+                <td>
+                    <input type="date" id="date_immatriculation" name="date_immatriculation">
+                </td>
+            </tr>
+
+            <!-- Kilométrage : champ numérique -->
+            <tr>
+                <td><label for="kilometrage">Kilométrage :</label></td>
+                <td>
+                    <input type="number" id="kilometrage" name="kilometrage" min="0">
+                </td>
+            </tr>
+
+            <!-- État : boutons radio exclusifs (même name) -->
+            <tr>
+                <td><label for="etat_occasion">État :</label></td>
+                <td>
+                    <label for="etat_occasion">Occasion</label>
+                    <input type="radio" id="etat_occasion" name="etat" value="occasion">
+
+                    <label for="etat_neuf">Neuf</label>
+                    <input type="radio" id="etat_neuf" name="etat" value="neuf">
+                </td>
+            </tr>
+
+            <!-- Carburant : boutons radio exclusifs (même name) -->
+            <tr>
+                <td><label for="carburant_hybride">Carburant :</label></td>
+                <td>
+                    <label for="carburant_hybride">Hybride</label>
+                    <input type="radio" id="carburant_hybride" name="carburant" value="hybride">
+
+                    <label for="carburant_electrique">Électrique</label>
+                    <input type="radio" id="carburant_electrique" name="carburant" value="electrique">
+
+                    <label for="carburant_diesel">Diesel</label>
+                    <input type="radio" id="carburant_diesel" name="carburant" value="diesel">
+
+                    <label for="carburant_essence">Essence</label>
+                    <input type="radio" id="carburant_essence" name="carburant" value="essence">
+                </td>
+            </tr>
+
+            <!-- Boîte de vitesses : boutons radio, car il n'y a que 2 choix
+                 exclusifs (manuelle ou automatique), visibles d'un coup d'œil -->
+            <tr>
+                <td><label for="boite_manuelle">Boîte de vitesses :</label></td>
+                <td>
+                    <label for="boite_manuelle">Manuelle</label>
+                    <input type="radio" id="boite_manuelle" name="boite" value="manuelle">
+
+                    <label for="boite_automatique">Automatique</label>
+                    <input type="radio" id="boite_automatique" name="boite" value="automatique">
+                </td>
+            </tr>
+
+            <!-- Nombre de portes : liste déroulante, car il y a peu de valeurs
+                 possibles (2 à 5), ce qui évite les saisies incohérentes) -->
+            <tr>
+                <td><label for="portes">Nombre de portes :</label></td>
+                <td>
+                    <select id="portes" name="portes">
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- Donnée supplémentaire n°1 : kilométrage maximum autorisé.
+                 Champ numérique, car c'est une valeur en km par jour de location -->
+            <tr>
+                <td><label for="km_max">Km maximum autorisé :</label></td>
+                <td>
+                    <input type="number" id="km_max" name="km_max" min="0">
+                </td>
+            </tr>
+
+            <!-- Donnée supplémentaire n°2 : disponibilité du véhicule.
+                 Case à cocher, car il n'y a que deux états possibles (oui / non) -->
+            <tr>
+                <td><label for="disponible">Disponible à la location :</label></td>
+                <td>
+                    <input type="checkbox" id="disponible" name="disponible" value="oui">
+                </td>
+            </tr>
+
+            <!-- Boutons de fin de formulaire -->
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit">Enregistrer</button>
+                    <button type="reset">Annuler</button>
+                </td>
+            </tr>
+
+        </table>
+
+    </form>
+
+    <footer>
+        <p>&copy;2026 Agence Méditerranée - Location de véhicules</p>
+    </footer>
+
+</body>
+</html>

@@ -4,22 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Inscription Nouveau Client - Méditerranée</title>
-
-    <style>
-        table {
-            border: none;
-        }
-
-        td {
-            padding: 5px;
-            border: none;
-        }
-
-        td:first-child {
-            text-align: right;
-            padding-right: 15px;
-        }
-    </style>
 </head>
 
 <body bgcolor="F2E788">
@@ -32,39 +16,50 @@
 
             <tr>
                 <td><label for="nom">Nom :</label></td>
-                <td><input type="text" id="nom" name="nom"></td>
+                <td>
+                    <input type="text" id="nom" name="nom">
+                </td>
             </tr>
 
             <tr>
                 <td><label for="prenom">Prénom :</label></td>
-                <td><input type="text" id="prenom" name="prenom"></td>
+                <td>
+                    <input type="text" id="prenom" name="prenom">
+                </td>
             </tr>
 
             <tr>
                 <td><label for="date_naissance">Date de naissance :</label></td>
-                <td><input type="date" id="date_naissance" name="date_naissance"></td>
+                <td>
+                    <input type="date" id="date_naissance" name="date_naissance">
+                </td>
             </tr>
 
             <tr>
                 <td><label for="email">Adresse mail :</label></td>
-                <td><input type="email" id="email" name="email"></td>
+                <td>
+                    <input type="email" id="email" name="email">
+                </td>
             </tr>
 
             <tr>
                 <td><label for="mdp">Mot de passe :</label></td>
-                <td><input type="password" id="mdp" name="mdp"></td>
+                <td>
+                    <input type="password" id="mdp" name="mdp">
+                </td>
             </tr>
 
             <tr>
                 <td><label for="permis">Numéro de permis :</label></td>
-                <td><input type="text" id="permis" name="permis"></td>
+                <td>
+                    <input type="text" id="permis" name="permis">
+                </td>
             </tr>
 
             <tr>
                 <td><label for="anciennete">Nombre d'années d'ancienneté :</label></td>
                 <td>
-                    <input type="number" id="anciennete" name="anciennete"
-                           min="0" max="80">
+                    <input type="number" id="anciennete" name="anciennete" min="0" max="80">
                 </td>
             </tr>
 
@@ -82,8 +77,7 @@
             <tr>
                 <td><label for="adresse">Adresse du client :</label></td>
                 <td>
-                    <textarea id="adresse" name="adresse"
-                              rows="4" cols="30"></textarea>
+                    <textarea id="adresse" name="adresse" rows="4" cols="30"></textarea>
                 </td>
             </tr>
 
@@ -102,12 +96,10 @@
                 <td>Préférence de voiture :</td>
                 <td>
                     <label for="pref_auto">Automatique</label>
-                    <input type="checkbox" id="pref_auto"
-                           name="preference_auto" value="automatique">
+                    <input type="checkbox" id="pref_auto" name="preference_auto" value="automatique">
 
                     <label for="pref_manuelle">Manuelle</label>
-                    <input type="checkbox" id="pref_manuelle"
-                           name="preference_manuelle" value="manuelle">
+                    <input type="checkbox" id="pref_manuelle" name="preference_manuelle" value="manuelle">
                 </td>
             </tr>
 
