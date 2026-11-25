@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : mer. 25 nov. 2026 à 08:10
+-- Généré le : mer. 25 nov. 2026 à 08:45
 -- Version du serveur : 8.0.44
 -- Version de PHP : 8.2.29
 
@@ -53,16 +53,42 @@ CREATE TABLE `locations` (
   ` date_location` date NOT NULL,
   `nbre_jour` int NOT NULL,
   `id_client` int NOT NULL,
-  `immatriculation` varchar(20) COLLATE utf8mb4_general_ci NOT NULL
+  `immatriculation` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `prix_location` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `locations`
 --
 
-INSERT INTO `locations` (`id_location`, ` date_location`, `nbre_jour`, `id_client`, `immatriculation`) VALUES
-(1234, '2026-11-11', 10, 300, '200 TU 200'),
-(54321, '2026-11-15', 6, 200, '300 TU 300');
+INSERT INTO `locations` (`id_location`, ` date_location`, `nbre_jour`, `id_client`, `immatriculation`, `prix_location`) VALUES
+(1234, '2026-11-11', 10, 300, '200 TU 200', 100),
+(54321, '2026-11-15', 6, 200, '300 TU 300', 70);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `reparations`
+--
+
+CREATE TABLE `reparations` (
+  `Num_rep` int NOT NULL,
+  `date_rep` date NOT NULL,
+  `type_panne` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `lieu_panne` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `prix_rep` int NOT NULL,
+  `nbre_jours_rep` int NOT NULL,
+  `adresse_mecanicien` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `immatriculation` varchar(20) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `reparations`
+--
+
+INSERT INTO `reparations` (`Num_rep`, `date_rep`, `type_panne`, `lieu_panne`, `prix_rep`, `nbre_jours_rep`, `adresse_mecanicien`, `immatriculation`) VALUES
+(1234, '2026-11-03', 'Moteur', 'Moteur', 400, 5, 'Paris', '200 TU 200'),
+(4321, '2026-11-04', 'Carosserie', 'Porte', 300, 3, 'Paris', '300 TU 300');
 
 -- --------------------------------------------------------
 
@@ -75,16 +101,17 @@ CREATE TABLE `voitures` (
   `marque` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
   `couleur` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
   `kilometrage` int NOT NULL,
-  `date_circulation` date NOT NULL
+  `date_circulation` date NOT NULL,
+  `nbre_porte` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `voitures`
 --
 
-INSERT INTO `voitures` (`immatriculation`, `marque`, `couleur`, `kilometrage`, `date_circulation`) VALUES
-('200 TU 200', 'Peugeot', 'Grise', 10000, '2026-11-10'),
-('300 TU 300', 'Renault', 'Rouge', 30000, '2026-11-18');
+INSERT INTO `voitures` (`immatriculation`, `marque`, `couleur`, `kilometrage`, `date_circulation`, `nbre_porte`) VALUES
+('200 TU 200', 'Peugeot', 'Grise', 10000, '2026-11-10', 4),
+('300 TU 300', 'Renault', 'Rouge', 30000, '2026-11-18', 3);
 
 --
 -- Index pour les tables déchargées
@@ -105,6 +132,13 @@ ALTER TABLE `locations`
   ADD KEY `immatriculation` (`immatriculation`);
 
 --
+-- Index pour la table `reparations`
+--
+ALTER TABLE `reparations`
+  ADD PRIMARY KEY (`Num_rep`),
+  ADD KEY `immatriculation` (`immatriculation`);
+
+--
 -- Index pour la table `voitures`
 --
 ALTER TABLE `voitures`
@@ -120,6 +154,12 @@ ALTER TABLE `voitures`
 ALTER TABLE `locations`
   ADD CONSTRAINT `locations_ibfk_1` FOREIGN KEY (`id_client`) REFERENCES `clients` (`id_client`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `locations_ibfk_2` FOREIGN KEY (`immatriculation`) REFERENCES `voitures` (`immatriculation`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `reparations`
+--
+ALTER TABLE `reparations`
+  ADD CONSTRAINT `reparations_ibfk_1` FOREIGN KEY (`immatriculation`) REFERENCES `voitures` (`immatriculation`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
